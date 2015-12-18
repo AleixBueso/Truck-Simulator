@@ -30,10 +30,12 @@ public:
 	PhysBody3D* AddBody(const Sphere& sphere, float mass = 1.0f);
 	PhysBody3D* AddBody(const Cube& cube, float mass = 1.0f);
 	PhysBody3D* AddBody(const Cylinder& cylinder, float mass = 1.0f);
-	PhysVehicle3D* AddVehicle(const VehicleInfo& info);
+	PhysVehicle3D* AddVehicle(const VehicleInfo& info, const VehicleInfo& info2, const VehicleInfo& info3, const VehicleInfo& info4, const VehicleInfo& info5);
+	PhysVehicle3D* AddVehicle(const VehicleInfo& info, const VehicleInfo& info2);
 
 	void AddConstraintP2P(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB);
-	void AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisS, const vec3& axisB, bool disable_collision = false);
+	btHingeConstraint& AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisS, const vec3& axisB, bool disable_collision = false);
+	void AddConstraintFixed(PhysBody3D& bodyA, PhysBody3D& bodyB);
 
 private:
 
